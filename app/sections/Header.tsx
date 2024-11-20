@@ -2,6 +2,8 @@
 import React, { useState } from "react";
 import { LuMenuSquare } from "react-icons/lu";
 import { RxCross2 } from "react-icons/rx";
+import {motion} from "framer-motion"
+
 
 export default function Header() {
 
@@ -13,7 +15,22 @@ export default function Header() {
   }
 
   return (
-    <header className="sticky top-0">
+    <motion.header 
+    initial = {{
+      y : -100,
+      opacity : 0,
+    }} 
+    animate = {{
+      y:0,
+      opacity:1,
+      
+      transition:{  
+        duration : 0.7,
+      }
+    }}
+    viewport = {{once:true}}
+    whileInView={{opacity:1}}
+    className="sticky top-0 backdrop-blur-sm z-50">
       <div className="flex flex-row justify-between items-center py-5 px-5">
         <div>
           <h2 className="text-sm font-bold text-black">Logo Here</h2>
@@ -31,7 +48,24 @@ export default function Header() {
           <a className="text-gray-600 font-light" href="#">Products</a>
           <a className="text-gray-600 font-light" href="#">Contact Us</a>
           <a className="text-gray-600 font-light" href="#">Help and Support</a>
-          <button className="text-white bg-black p-4 rounded-lg">Get Started for free</button>
+          <motion.button 
+          className="text-white bg-black p-4 rounded-lg"
+          whileHover={{
+            scale:1.10,
+            transition : {
+              duration:0.15,
+            }
+          }}
+
+          whileTap={{
+            scale:0.8,
+            transition : {
+              duration : 0.15 ,
+            }
+          }}
+          
+          >Get Started for free
+          </motion.button>
         </nav>
       </div>
       </div>
@@ -64,6 +98,6 @@ export default function Header() {
       )}
      
       
-    </header>
+    </motion.header>
   );
 }
