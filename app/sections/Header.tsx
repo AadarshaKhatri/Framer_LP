@@ -44,10 +44,10 @@ export default function Header() {
         </div>
         <div className="hidden md:flex">
         <nav className="flex flex-row gap-x-5 justify-center items-center">
-          <a className="text-gray-600 font-light" href="#">About Us</a>
-          <a className="text-gray-600 font-light" href="#">Products</a>
-          <a className="text-gray-600 font-light" href="#">Contact Us</a>
-          <a className="text-gray-600 font-light" href="#">Help and Support</a>
+          <a className="text-gray-800 font-light" href="#">About Us</a>
+          <a className="text-gray-800 font-light" href="#">Products</a>
+          <a className="text-gray-800 font-light" href="#">Contact Us</a>
+          <a className="text-gray-800 font-light" href="#">Help and Support</a>
           <motion.button 
           className="text-white bg-black p-4 rounded-lg"
           whileHover={{
