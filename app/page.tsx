@@ -4,6 +4,7 @@ import { LogoTicker } from "./sections/LogoTicker";
 import "../app/globals.css"
 import { Product } from "./sections/Product";
 import { Management } from "./sections/Management";
+import { Pricing } from "./sections/Pricing";
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
     <LogoTicker/>
     <Product/>
     <Management/>
+    <Pricing/>
 
    </>
   );
