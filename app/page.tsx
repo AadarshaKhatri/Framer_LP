@@ -3,6 +3,7 @@ import { Hero } from "./sections/Hero";
 import { LogoTicker } from "./sections/LogoTicker";
 import "../app/globals.css"
 import { Product } from "./sections/Product";
+import { Management } from "./sections/Management";
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
     <Hero/>
     <LogoTicker/>
     <Product/>
+    <Management/>
 
    </>
   );

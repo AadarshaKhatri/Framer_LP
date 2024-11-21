@@ -10,7 +10,7 @@ export function Hero () {
   };
   
   return (
-    <section className="pt-6 pb-20 md:pt-4 md:pb-10 bg-[radial-gradient(ellipse_200%_100%_at_bottom_left,_#183EC2,_#EAEEFE_66%)]" >
+    <section className="pt-6 pb-20 md:pt-4 md:pb-10 bg-[radial-gradient(ellipse_200%_100%_at_bottom_left,_#183EC2,_#EAEEFE_66%)] " >
       <div className="container mx-auto px-6 md:px-0">
         <div className="w-full flex flex-col md:flex-row md:justify-between items-center">
           {/* Text Content */}
@@ -56,7 +56,7 @@ export function Hero () {
               width={270}
               height={270}
               quality={100}
-              className="z-50 hidden lg:block absolute lg:right-[-100px] lg:top-[490px] "
+              className=" overflow-x-hidden z-50 hidden lg:block absolute lg:right-[-160px] lg:top-[400px] "
             />
           </div>
 
