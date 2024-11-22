@@ -13,7 +13,7 @@ export function Pricing(){
       <div className="flex flex-col justify-between items-center">
          
             <h2 className="text-3xl py-2 text-center font-bold tracking-tighter mt-6 md:text-5xl lg:text-7xl " style={TextGradient}>Pricing</h2>
-            <p className=" text-xl w-96 py-2 text-center text-[#010D3E] mt-6">Free Forever. Upgrade for unlimited tasks better security and exclusive features</p>
+            <p className=" text-xl w-96 py-2 text-center text-[#010D3E] mt-6 mb-10">Free Forever. Upgrade for unlimited tasks better security and exclusive features</p>
 
             <PricingCards/>
         </div>

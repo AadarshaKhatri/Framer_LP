@@ -56,7 +56,7 @@ export function Hero () {
               width={270}
               height={270}
               quality={100}
-              className=" overflow-x-hidden z-50 hidden lg:block absolute lg:right-[-160px] lg:top-[400px] "
+              className=" overflow-x-hidden z-50 hidden lg:block absolute lg:right-[-160px] lg:top-[500px] "
             />
           </div>
 

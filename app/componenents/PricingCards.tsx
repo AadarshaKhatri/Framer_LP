@@ -1,4 +1,4 @@
-import { features } from "process"
+
 import { FaCheck } from "react-icons/fa"
 
 export function PricingCards(){
