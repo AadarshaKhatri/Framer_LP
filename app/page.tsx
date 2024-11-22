@@ -6,7 +6,7 @@ import { Product } from "./sections/Product";
 import { Management } from "./sections/Management";
 import { Pricing } from "./sections/Pricing";
 import { Testimonials } from "./sections/Testimonials";
-// import { SignUp } from "./sections/SignUp";
+import { SignUp } from "./sections/SignUp";
 
 export default function Home() {
   return (
@@ -18,7 +18,7 @@ export default function Home() {
     <Management/>
     <Pricing/>
     <Testimonials/>
-    {/* <SignUp/> */}
+    <SignUp/>
 
    </>
   );
