@@ -1,8 +1,13 @@
+"use client"
+
 import Image from "next/image"
+
 import { CiLock } from "react-icons/ci"
 import { FaArrowRight, FaLeaf } from "react-icons/fa"
 import { GoGoal } from "react-icons/go"
 import { IoNotifications } from "react-icons/io5"
+import {motion} from "framer-motion"
+
 
 export function Product(){
 
@@ -40,14 +45,26 @@ export function Product(){
                 <h2 className="text-3xl h-auto py-2 text-center font-bold tracking-tighter mt-6 md:text-5xl lg:text-7xl " style={TextGradient}>A more effective way to track your progress</h2>
                 <p className=" text-xl text-center pb-5 text-[#010D3E] mt-6">Effortlessly turn your ideas into a fully functional, responsive, no-code SaaS website in just minutes with the set of free components for Framer.</p>
                 <div className="relative ">
-                  <Image
+                  <motion.img
+                  whileInView={{
+                    scale: [0.1, 1], 
+                  }}
+                  transition={{
+                    duration: 0.9,
+                    ease: "easeInOut",
+                   
+                  }}
+                  viewport={{
+                    once:true,
+                   
+                  }}
                   src = "/assets/ProductImage.png"
                   alt = "Product Image"
                   width = {2000}
                   height={2000}
-                  quality={100}
+                  
                    className="object-cover w-full h-auto "
-                  priority
+              
              
 
                   />
