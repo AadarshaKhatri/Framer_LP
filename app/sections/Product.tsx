@@ -1,15 +1,24 @@
 "use client"
 
-import Image from "next/image"
+
 
 import { CiLock } from "react-icons/ci"
 import { FaArrowRight, FaLeaf } from "react-icons/fa"
 import { GoGoal } from "react-icons/go"
 import { IoNotifications } from "react-icons/io5"
-import {motion} from "framer-motion"
+import {motion , useScroll,useTransform} from "framer-motion"
+import { useRef } from "react"
 
 
 export function Product(){
+  const ProductRef = useRef(null);
+
+  const {scrollYProgress} = useScroll({
+    target : ProductRef,
+    offset : ["start end" , "end start"]
+  });
+
+  const translatingYvalue = useTransform(scrollYProgress , [0,1] , [500,-500])
 
   const ProductInformation = [
     {
@@ -38,7 +47,7 @@ export function Product(){
     color: "transparent", 
   }
   return (
-    <section className="bg-gradient-to-b from-[#FFFFFF] to-[#D2DCFF] py-20 overflow-x-hidden">
+    <section ref = {ProductRef} className="bg-gradient-to-b from-[#FFFFFF] to-[#D2DCFF] py-20 overflow-hidden">
       <div className="container px-6 md:px-0  mx-auto mt-5 ">
           <div className="flex flex-col justify-between items-center">
                 <div className="text-black text-sm px-3 py-2 border-2 border-gray-300 w-42 inline-flex rounded-lg ">Boost your Productivity</div>
@@ -46,18 +55,7 @@ export function Product(){
                 <p className=" text-xl text-center pb-5 text-[#010D3E] mt-6">Effortlessly turn your ideas into a fully functional, responsive, no-code SaaS website in just minutes with the set of free components for Framer.</p>
                 <div className="relative ">
                   <motion.img
-                  whileInView={{
-                    scale: [0.1, 1], 
-                  }}
-                  transition={{
-                    duration: 0.9,
-                    ease: "easeInOut",
-                   
-                  }}
-                  viewport={{
-                    once:true,
-                   
-                  }}
+                
                   src = "/assets/ProductImage.png"
                   alt = "Product Image"
                   width = {2000}
@@ -68,21 +66,25 @@ export function Product(){
              
 
                   />
-                  <Image 
+                  <motion.img 
                   src = "/assets/ScreenSectionDonut.png"
                   alt = "Product Image 2"
                   width = {300}
                   height ={300}
-                  quality={100}
+                  style={{
+                    translateY :translatingYvalue,
+                  }}
                   className="absolute z-40 hidden md:flex md:max-w-[200px] md:max-h-[300px] md:-ml-36 md:top-20 lg:max-w-[300px] lg:max-h-[420px] lg:-ml-60 lg:top-40"
                   />
 
-                <Image 
+                <motion.img 
                   src = "/assets/ScreenSectionPyramid.png"
                   alt = "Product Image 2"
                   width = {300}
                   height ={300}
-                  quality={100}
+                  style={{
+                    translateY : translatingYvalue,
+                  }}
                   className="overflow-x-hidden absolute hidden md:block md:max-w-[180px] md:max-h-[280px] md:-top-10 md:ml-[600px]  lg:max-w-[400px] lg:max-h-[520px] lg:top-0 lg:ml-[920px]"
                   />
                   
@@ -92,7 +94,27 @@ export function Product(){
              
 
               <div id="Information" className=" mt-10">
-                <div className="grid grid-cols-1 gap-20 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+                <motion.div 
+                initial={{
+                  opacity:0,
+                  y:100,
+
+                }}
+                whileInView={{
+                  opacity:1,
+                  y:0,
+                }}
+                transition={{
+                  duration:1,
+                  ease:["easeInOut"],
+                }}
+
+                viewport={{
+                  once:true,
+                }}
+                
+                
+                className="grid grid-cols-1 gap-20 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
                   {
                     ProductInformation.map((currentElement, index) => (
                       <div key={index} >
@@ -105,7 +127,7 @@ export function Product(){
                       </div>
                     ))
                   }
-                </div>
+                </motion.div>
               </div>
 
               </div>

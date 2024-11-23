@@ -1,13 +1,30 @@
+"use client"
+
 import { FaArrowRight } from "react-icons/fa"
-import Image from "next/image"
+
+
+import {motion, useScroll , useTransform} from "framer-motion";
+import { useRef } from "react";
+
+
+
+
 export function SignUp(){
+  const SignUpRef = useRef(null);
+  const {scrollYProgress} = useScroll({
+    target : SignUpRef,
+    offset : ["start end", "end start"] 
+    
+  })
+
+  const translateingY = useTransform(scrollYProgress,[0,1],[300,-300]);
   const TextGradient = {
     backgroundImage: "linear-gradient(to bottom, #000000, #001354)", 
     WebkitBackgroundClip: "text", 
     color: "transparent", 
   }
   return (
-    <section className="py-20 overflow-hidden bg-[linear-gradient(to_bottom,#FFFFFF,#D2DCFF)]">
+    <section ref = {SignUpRef} className="py-20 overflow-hidden bg-[linear-gradient(to_bottom,#FFFFFF,#D2DCFF)]">
       <div className="container mx-auto px-6">
 
         <div className="relative  ">
@@ -24,22 +41,24 @@ export function SignUp(){
           </div>
 
 
-          <Image 
+          <motion.img 
             src = "/assets/SignUpSectionStar.png"
             alt = "Image"
             width = {300}
             height = {300}
-            quality = {100}
+            style={{translateY:translateingY}}
+         
             className=" absolute hidden md:block  md:top-[-80px] md:-left-[150px]"
           />
 
           
-          <Image 
+          <motion.img 
             src = "/assets/SignUpSectionSolenoid.png"
             alt = "Image"
             width = {300}
             height = {300}
-            quality = {100}
+            style={{translateY:translateingY}}
+            
             className=" absolute hidden md:block   md:top-[80px] md:right-[-150px]"
           />
 

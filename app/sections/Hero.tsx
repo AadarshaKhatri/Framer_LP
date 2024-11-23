@@ -2,9 +2,17 @@
 
 import Image from "next/image";
 import { FaArrowRight } from "react-icons/fa";
-import { motion} from "framer-motion"
+import { motion, useScroll , useTransform} from "framer-motion"
+import { useRef } from "react";
 
 export function Hero () {
+  const HeroRef = useRef(null)
+  const {scrollYProgress} = useScroll({
+    target : HeroRef,
+    offset : ["start end" , "end start"]
+  })
+  const translateY = useTransform(scrollYProgress, [0,1] , [200,-300]);
+ 
   const TextGradient = {
     backgroundImage: "linear-gradient(to bottom, #000000, #001354)", 
     WebkitBackgroundClip: "text", 
@@ -12,7 +20,7 @@ export function Hero () {
   };
   
   return (
-    <section className="  pt-6 pb-20 md:pt-4 md:pb-10 bg-[radial-gradient(ellipse_200%_100%_at_bottom_left,_#183EC2,_#EAEEFE_66%)] " >
+    <section    ref = {HeroRef} className=" overflow-hidden  pt-6 pb-20 md:pt-4 md:pb-10 bg-[radial-gradient(ellipse_200%_100%_at_bottom_left,_#183EC2,_#EAEEFE_66%)] " >
       <div className="container mx-auto px-6 md:px-0">
         <div className="w-full flex flex-col md:flex-row md:justify-between items-center">
           {/* Text Content */}
@@ -45,6 +53,7 @@ export function Hero () {
           </motion.div>
 
           <motion.div
+       
           initial={{
             opacity:0,
           }}
@@ -88,22 +97,27 @@ export function Hero () {
           </motion.div>
 
             {/* Cylinder Image */}
-            <Image
+            <motion.img
               src="/assets/LandingpageCylinder.png"
               alt="Cylinder"
               width={170}
               height={170}
-              quality={100}
-              className="hidden md:block absolute md:right-[300px] md:top-[-10px] lg:right-[360px] lg:top-[-10px] "
+              style={{
+                translateY:translateY,
+              }}
+              className="hidden md:block absolute lg:w-[200px] lg:h-[190px] md:right-[300px] md:top-[-10px] lg:right-[360px] lg:top-[-10px] "
             />
 
-<Image
+<motion.img
               src="/assets/LandingPageU.png"
               alt="Cylinder"
               width={270}
               height={270}
-              quality={100}
-              className=" overflow-x-hidden z-50 hidden lg:block absolute lg:right-[-160px] lg:top-[500px] "
+              style={{
+                translateY:translateY,
+              }}
+           
+              className="  overflow-x-hidden z-10 hidden lg:block absolute lg:right-[-160px] lg:top-[500px] "
             />
           </motion.div>
 
