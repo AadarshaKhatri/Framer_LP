@@ -10,8 +10,7 @@
 !.yarn/releases
 !.yarn/versions
 
-/public/assets
-/public/logo
+
 # testing
 /coverage
 
